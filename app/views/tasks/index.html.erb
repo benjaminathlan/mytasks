@@ -1,0 +1,38 @@
+
+<h2>task list</h2>
+
+<% @tasks.each do |task| %>
+  <ul>
+    <li <%= css task %> rel="<%= task.id %>">
+		<span>
+			<% form_for(task) do |f| %>
+				<%= f.check_box :complete %>
+			<% end %>
+		</span>
+		<span class="picto" >&nbsp;</span>
+		<em><%=h task.name %></em>
+		<span class="button btn_del" rel="<%= task.id %>"><a href="#" class="btn red">DELETE</a></span>
+	</li>
+    <!-- <td><%= link_to 'Show', task %></td>
+    <td><%= link_to 'Edit', edit_task_path(task) %></td>
+    <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td> -->
+  </ul>
+<% end %>
+
+
+<br />
+
+<%= link_to '+ add task', new_task_path, :class => "btn green" %>
+
+<%=	javascript_include_tag 'jquery', :cache => false %>
+<%= javascript_include_tag 'ibuttonlib/jquery.ibutton', :cache => false  %>
+<%= javascript_include_tag 'jquery.styledButton', :cache => false  %>
+<%= javascript_include_tag 'btn', :cache => false  %>
+
+<%= stylesheet_link_tag 'ibuttoncss/jquery.ibutton' %>
+
+<%= stylesheet_link_tag 'styledButton' %>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js" type="text/javascript" charset="utf-8"></script> -->
+
+<%= javascript_include_tag 'tasks', :cache => false %>
+

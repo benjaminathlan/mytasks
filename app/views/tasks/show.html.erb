@@ -1,0 +1,21 @@
+
+<p <%= css %>>
+
+<p>
+  <b>Name:</b>
+  <%=h @task.name %>
+</p>
+
+
+<p <%= css %>>
+  <b>Complete?</b>
+  <%=h @task.complete ? "Tache effectuée" : "Tu l'as pas faite !!!" %>
+
+<p>
+  <b>Complete:</b>
+  <%=h @task.complete %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
